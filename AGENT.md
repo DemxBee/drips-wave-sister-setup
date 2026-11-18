@@ -41,6 +41,7 @@ Study how dev.maya writes on GitHub (mimir-stellar telegram-bot PR #220, merged 
 - If the malware is the work itself, the repo's main code or a dependency is the malware, or its purpose cannot be told, or it looks like it steals tokens or passwords: abandon the issue, tell her and the maintainer what you found, and do not run the code.
 - If malware was added on top of otherwise good work: clean it, rebuild from main, tell her and the maintainer exactly what was removed. No quiet clean-ups.
 - Never run `api.js` or `npm run build` on a branch you have not vetted. This burned a previous Wave: a payload was hidden in a merge commit, so always diff against main first.
+- Vet with the security skills from the kit setup (secure-code-review and dependency-scanning) before you run any code you did not write yourself. If a skill is not installed, say so and vet by hand: read the diff, check every new file and dependency.
 
 ## Things that belong to her brother, not her
 
