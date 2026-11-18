@@ -1,4 +1,4 @@
-# Wave 11 — Facts
+# Wave 11: Facts
 
 Stellar Wave Program, Wave 11. Dates, pool and points as known on 18 November 2026. Confirm the pool and each issue's points in the Drips app before applying, because they can change.
 
@@ -30,7 +30,7 @@ Check each one in the Drips app before applying. These are candidates, not confi
 | #248 | wraith-protocol/demo | Extend submission idempotency beyond Stellar (EVM/Solana/CKB) | Heaviest of the three |
 | #221 | Stellar-Agent-Guard/docs | Operator runbook commands in disposable fixtures | Docs work |
 
-## Already taken — do not start these
+## Already taken: do not start these
 
 - Issues #136 and #115 on `Stellar-Agent-Guard/stellar-agent-guard-sdk` already have pull requests (#234 and #228) from her brother's account. They are not hers to work on.
 
