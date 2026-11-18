@@ -38,7 +38,8 @@ Do not push anything to it until you have been assigned an issue. That rule prot
 
 1. Clone or download this repo on your device, or send its files to your AI in chat.
 2. Tell your AI to read `AGENT.md` and `WAVE-11.md` and keep them as its working instructions.
-3. Use the starter prompt in step 5.
+3. Install the two security skills your AI needs for vetting code. They come from the UnitOneAI SecuritySkills pack (MIT licensed, https://github.com/UnitOneAI/SecuritySkills). Tell your AI: `npx skills add UnitOneAI/SecuritySkills`, then pick **secure-code-review** and **dependency-scanning**. Secure-code-review checks code against OWASP ASVS and the CWE Top 25, and dependency-scanning checks dependencies for known vulnerabilities. Your AI uses both before it runs any code it did not write itself.
+4. Use the starter prompt in step 5.
 
 ## Step 5: The starter prompt (paste this to your AI)
 
