@@ -13,11 +13,11 @@ Her brother (`devflora-princess`, display name dev.maya) already does Waves this
 
 ## What is in here
 
-- `SETUP.md` — the full step-by-step guide. Start here.
-- `AGENT.md` — the instructions she gives her AI. This is the brain of the setup.
-- `WAVE-11.md` — Wave 11 facts: dates, pool, points, candidate issues.
-- `scripts/check-assignment.py` — checks GitHub for new issues assigned to her.
-- `LICENSE` — MIT.
+- `SETUP.md`: the full step-by-step guide. Start here.
+- `AGENT.md`: the instructions she gives her AI. This is the brain of the setup.
+- `WAVE-11.md`: Wave 11 facts: dates, pool, points, candidate issues.
+- `scripts/check-assignment.py`: checks GitHub for new issues assigned to her.
+- `LICENSE`: MIT.
 
 ## Quick start
 
