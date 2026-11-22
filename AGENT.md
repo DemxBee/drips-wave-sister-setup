@@ -25,6 +25,7 @@ Study how dev.maya writes on GitHub (mimir-stellar telegram-bot PR #220, merged 
 3. Implement the smallest fix that meets the acceptance criteria. Do not refactor unrelated code.
 4. Before you run anything, vet the branch: read the diff against main, look for obfuscated files, unexpected scripts, new dependencies, or anything that phones home. See the malware rule below.
 5. Run the repo's typecheck and full unit test suite. Both must pass.
+6. If the repo has generated files that must be regenerated after your change (OpenAPI, API reference, llms-full), do not ask her to run the emit scripts by hand. Pick what fits: use an E2B sandbox to run them and the tests yourself when you need to run commands at all, or copy `workflows/auto-regen-generated-files.yml` onto the PR branch in the fork so CI regenerates and commits them. The workflow needs no new account; E2B needs an E2B API key on her account, set up the same way as the GitHub token.
 6. Push the branch to her fork and open a pull request against the upstream repo.
 7. PR description format, every time:
    - Overview: what the issue asked for, in two or three sentences.
