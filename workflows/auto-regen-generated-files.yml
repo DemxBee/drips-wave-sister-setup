@@ -1,0 +1,56 @@
+# Regenerate generated files automatically on a PR branch.
+#
+# Copy this file into the PR branch in the fork (NOT onto main) when a PR
+# needs generated files regenerated after a change, for example OpenAPI,
+# API reference and llms-full docs. CI then runs the repo's emit scripts
+# and commits the result back to the same branch, so no human has to run
+# them by hand in a Codespace.
+#
+# How it works: on every push to a matching branch, it installs deps, runs
+# every package.json script whose name starts with "emit-", and if anything
+# changed, commits and pushes it back. A push made by the workflow token
+# does not trigger the workflow again, so it cannot loop.
+#
+# Requirements: GitHub Actions enabled in the fork, and the repo must have
+# emit-* scripts in package.json. If a repo names its regen scripts
+# differently, change the node line below to list them.
+name: Regenerate generated files
+
+on:
+  push:
+    branches:
+      - 'fix/**'
+      - 'feat/**'
+      - 'drips-wave11-**'
+
+jobs:
+  regen:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Run emit scripts
+        run: |
+          for s in $(node -e "const p=require('./package.json'); console.log(Object.keys(p.scripts||{}).filter(k=>k.startsWith('emit-')).join(' '))"); do
+            echo "running $s"
+            npm run "$s"
+          done
+      - name: Commit regenerated files
+        run: |
+          if git diff --quiet; then
+            echo "nothing to regenerate"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "chore: regenerate generated files"
+            git push
+          fi
